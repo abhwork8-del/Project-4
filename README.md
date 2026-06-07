@@ -1,119 +1,113 @@
 # Project 4
 # Lab 13
-## Predictive Maintenance Model Training and Experiment Tracking
-# Objective
-The objective of this lab is to build a predictive maintenance system using machine learning techniques. Synthetic industrial sensor data is generated and used to train multiple classification models. The performance of each model is evaluated and compared.
-# Dataset
-A synthetic dataset containing 10,000 equipment records was generated using NumPy.
-## Features
-Temperature
-Vibration
-Pressure
-RPM
-Equipment Age (Days)
-## Target Variable
-Failure (0 = No Failure, 1 = Failure)
-# Methodology
-## 1. Data Generation
-Synthetic sensor readings were generated using statistical distributions.
-## 2. Exploratory Data Analysis (EDA)
-The following analyses were performed:
-Summary Statistics
-Missing Value Analysis
-Failure Distribution Visualization
-Feature Distribution Histograms
-Correlation Heatmap
-## 3. Data Preprocessing
-Train-Test Split (80%-20%)
-Feature Scaling using StandardScaler
-## 4. Model Training
-Three machine learning models were trained:
-1. Logistic Regression
-2. Random Forest Classifier
-3. XGBoost Classifier
-## 5. Evaluation Metrics
-Models were evaluated using:
-Accuracy
-Precision
-Recall
-F1 Score
-ROC-AUC Score
-## 6. Model Comparison
-All models were compared based on ROC-AUC performance.
-# Results
-XGBoost achieved the highest performance and was selected as the best model for predictive maintenance prediction.
-# Technologies Used
-Python
-NumPy
-Pandas
-Matplotlib
-Seaborn
-Scikit-Learn
-XGBoost
-MLflow
-# Conclusion
-The predictive maintenance system successfully identified equipment likely to fail based on sensor readings. XGBoost demonstrated superior performance and was selected for deployment in the subsequent model registry workflow.
-
+## Predictive Maintenance using Machine Learning and MLflow
+## Objective:
+The objective of this lab is to build a predictive maintenance system for industrial equipment using machine learning models and track experiments using MLflow.
+## Tools and Technologies:
+- Python
+- VS Code
+- Jupyter Notebook
+- Pandas
+- NumPy
+- Scikit-Learn
+- XGBoost
+- MLflow
+## Dataset:
+A synthetic predictive maintenance dataset was generated containing 10,000 samples with the following features:
+1. Temperature
+2. Vibration
+3. Pressure
+4. RPM
+5. Age_Days
+## Target Variable:
+- Failure (0 = No Failure, 1 = Failure)
+## Methodology:
+1. Generated synthetic maintenance dataset.
+2. Performed exploratory data analysis (EDA).
+3. Checked for missing values.
+4. Visualized failure distribution.
+5. Split dataset into training and testing sets.
+6. Applied feature scaling using StandardScaler.
+7. Trained three machine learning models:
+   - Logistic Regression
+   - Random Forest
+   - XGBoost
+8. Evaluated models using:
+   - Accuracy
+   - Precision
+   - Recall
+   - F1 Score
+   - ROC-AUC Score
+9. Logged experiments, parameters, metrics, and models using MLflow.
+10. Compared model performance using MLflow UI.
+## Results:
+- Logistic Regression
+- Random Forest
+- XGBoost
+The best-performing model was selected based on ROC-AUC score.
+## MLflow Features Used:
+- Experiment Tracking
+- Parameter Logging
+- Metric Logging
+- Model Logging
+- Run Comparison
+## Conclusion:
+MLflow successfully tracked all machine learning experiments and enabled comparison of multiple predictive maintenance models. XGBoost achieved the best performance and was selected for deployment and lifecycle management in Lab 14.
 # Lab 14
-# Model Registry, Versioning and Lifecycle Management
-# Objective
-The objective of this lab is to demonstrate machine learning model lifecycle management, including model registration, staging, production deployment, versioning, and rollback strategies.
-# Dataset
-The predictive maintenance dataset from Lab 13 was reused for training and evaluation.
-# Workflow
-## 1. Model Training
-The following models were trained:
-1. Logistic Regression
-2. Random Forest
-3. XGBoost
-## 2. Model Evaluation
-Each model was evaluated using ROC-AUC score.
-## 3. Best Model Selection
-The model with the highest ROC-AUC score was selected as the production candidate.
-## 4. Model Registration
-The selected model was registered under:
+## Model Registry and Lifecycle Management using MLflow
+## Objective:
+The objective of this lab is to manage machine learning models throughout their lifecycle using MLflow Model Registry, including registration, versioning, staging, production deployment, and rollback.
+## Tools and Technologies:
+- Python
+- VS Code
+- Jupyter Notebook
+- MLflow
+- Scikit-Learn
+- XGBoost
+## Prerequisite:
+Lab 13 completed successfully with trained machine learning models and MLflow experiment tracking.
+## Methodology:
+1. Connected notebook to MLflow Tracking Server.
+2. Generated predictive maintenance dataset.
+3. Trained and evaluated:
+   - Logistic Regression
+   - Random Forest
+   - XGBoost
+4. Compared model performance using ROC-AUC score.
+5. Selected the best-performing model.
+6. Registered the model in MLflow Model Registry.
+7. Created Version 1 of the registered model.
+8. Added model description and metadata tags.
+9. Promoted the model to Staging.
+10. Tested the model using sample equipment data.
+11. Promoted the model to Production.
+12. Created a production prediction function.
+13. Tested multiple maintenance scenarios.
+14. Registered a second model version.
+15. Performed model version management.
+16. Demonstrated rollback to a previous model version.
+## MLflow Features Used:
+- Model Registry
+- Model Versioning
+- Staging Environment
+- Production Environment
+- Model Metadata
+- Model Tags
+- Model Lifecycle Management
+- Rollback Mechanism
+## Registered Model:
 PredictiveMaintenance
-Version:
-Version 1
-## 5. Model Documentation
-Model metadata was added including:
-Description
-Validation Status
-Team Information
-Framework Information
-## 6. Staging Environment
-The registered model was promoted to the Staging environment for validation testing.
-## 7. Staging Validation
-Test cases containing high-risk equipment conditions were evaluated to verify model behavior.
-## 8. Production Deployment
-After successful validation, the model was promoted to the Production environment.
-## 9. Production Inference
-A prediction function was implemented to:
-Accept equipment sensor values
-Perform preprocessing
-Generate failure predictions
-Provide maintenance recommendations
-## 10. Versioning
-A second model version was registered to simulate future model updates.
-## 11. Rollback
-A rollback procedure was demonstrated by restoring Production to Version 1.
-# Technologies Used
-Python
-Scikit-Learn
-XGBoost
-MLflow Concepts
-Pandas
-NumPy
-# Key Concepts Demonstrated
-Model Registry
-Model Versioning
-Model Metadata
-Staging Environment
-Production Deployment
-Inference Pipeline
-Rollback Strategy
-# Conclusion
-The lab successfully demonstrated the complete machine learning model lifecycle. A predictive maintenance model was registered, validated, deployed, versioned, and rolled back, illustrating how ML models are managed in production environments.
+## Lifecycle Stages:
+- None
+- Staging
+- Production
+## Version Management:
+- Version 1
+- Version 2
+## Results:
+The best predictive maintenance model was successfully registered and managed through the MLflow lifecycle workflow. Multiple versions were maintained and deployment stages were demonstrated.
+## Conclusion:
+MLflow Model Registry provides an efficient framework for managing machine learning models from experimentation to production deployment. The lab demonstrated model registration, staging, production deployment, version control, and rollback capabilities.
 
 ## Author: Aliha Batool
 ## Artificial intelligence (AI)
